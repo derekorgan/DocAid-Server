@@ -31,6 +31,7 @@
 		//		array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Patients', 'url'=>array('/patient'),'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Staff', 'url'=>array('/staff'),'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Hospitals', 'url'=>array('/hospital'),'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Wards', 'url'=>array('/ward'),'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Rooms', 'url'=>array('/room'),'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Beds', 'url'=>array('/bed'),'visible'=>!Yii::app()->user->isGuest),
