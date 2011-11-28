@@ -27,7 +27,7 @@ class HospitalController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -173,4 +173,21 @@ class HospitalController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionList(){
+	    
+		$models = Hospital::model()->findAll();
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+        echo CJSON::encode($rows);
+ 		
+
+	 }
+
+
 }
