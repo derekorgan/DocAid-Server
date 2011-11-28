@@ -2,16 +2,16 @@
 
 // database settings for different enviroments
 if ($_SERVER['HTTP_HOST'] == 'docaid.orchestra.io'){
-	$envhost = '10.194.111.8'
-	$envdb = 'db_cf7749e5'
-	$envuser = 'user_cf7749e5'
-	$envpass = 'kpq5Wxz9.)oijb'
+	$envhost = '10.194.111.8';
+	$envdb = 'db_cf7749e5';
+	$envuser = 'user_cf7749e5';
+	$envpass = 'kpq5Wxz9.)oijb';
 
 }else {
-	$envhost = '127.0.0.1'
-	$envdb = 'docaid'
-	$envuser = 'root'
-	$envpass = 'root'
+	$envhost = '127.0.0.1';
+	$envdb = 'docaid';
+	$envuser = 'root';
+	$envpass = 'root';
 
 }
 
