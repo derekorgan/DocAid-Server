@@ -11,13 +11,12 @@ if ($_SERVER['HTTP_HOST'] == 'docaid.derekorgan.com'){
 	$envdb = 'docaid';
 	$envuser = 'root';
 	$envpass = 'root';
-} else
+} else {
 	$envhost = '127.0.0.1';
 	$envdb = 'docaid';
 	$envuser = 'root';
-	$envpass = 'root';
-}
-
+	$envpass = '';
+} 
 
 
 // uncomment the following to define a path alias
