@@ -1,5 +1,5 @@
 <?php
-Yii::app()->homeUrl = 'http://example.com/';
+
 
 // database settings for different enviroments
 if ($_SERVER['HTTP_HOST'] == 'docaid.derekorgan.com'){
