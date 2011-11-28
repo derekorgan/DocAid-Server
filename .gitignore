@@ -1,0 +1,9 @@
+*.swp
+.buldpath
+.project
+.settings
+www/assets/*
+www/protected/runtime/*
+www/protected/data/*.db
+www/protected/tests/report/*
+
