@@ -27,7 +27,7 @@ class HospitalController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','list'),
+				'actions'=>array('index','view','list', 'show'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -184,7 +184,32 @@ class HospitalController extends Controller
         foreach($models as $model)
             $rows[] = $model->attributes;
         // Send the response
-        echo CJSON::encode($rows);
+
+		$json = '{"hospital":';
+
+		$json .= CJSON::encode($rows);
+ 		$json .= "}";
+ 		echo $json;
+
+	 }
+
+	 /**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionShow($id){
+	    
+	    $hospital=Hospital::model()->findByPk($id);
+		$models = $hospital->wards;
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+        
+        $json = '{"id":'.$hospital->id.', ';
+        $json .= '"name":"'.$hospital->name.'", ';
+        $json .= '"ward":'.CJSON::encode($rows)."}";
+
+        echo $json;
  		
 
 	 }
