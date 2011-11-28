@@ -47,5 +47,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
 
+
 <?php $this->endWidget(); ?>
+
 </div><!-- form -->
