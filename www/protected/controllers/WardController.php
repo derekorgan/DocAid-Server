@@ -27,7 +27,7 @@ class WardController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'list'),
+				'actions'=>array('index','view', 'list', 'show'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -174,6 +174,45 @@ class WardController extends Controller
 		}
 	}
 
+	/**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionList(){
+	    
+		$models = Ward::model()->findAll();
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+
+		$json = '{"ward":';
+
+		$json .= CJSON::encode($rows);
+ 		$json .= "}";
+ 		echo $json;
+
+	 }
+
+	 /**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionShow($id){
+	    
+	    $ward=Ward::model()->findByPk($id);
+		$models = $ward->rooms;
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+        
+        $json = '{"id":'.$ward->id.', ';
+        $json .= '"name":"'.$ward->name.'", ';
+        $json .= '"room":'.CJSON::encode($rows)."}";
+
+        echo $json;
+ 		
+
+	 }
 
 
 
