@@ -1,4 +1,5 @@
 <?php
+Yii::app()->homeUrl = 'http://example.com/';
 
 // database settings for different enviroments
 if ($_SERVER['HTTP_HOST'] == 'docaid.derekorgan.com'){
@@ -26,7 +27,7 @@ if ($_SERVER['HTTP_HOST'] == 'docaid.derekorgan.com'){
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'DocAid Electronic Health Record System',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
