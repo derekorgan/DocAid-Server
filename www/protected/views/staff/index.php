@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Staffs',
+	'Staff',
 );
 
 $this->menu=array(
@@ -9,7 +9,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Staffs</h1>
+<h1>Staff</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

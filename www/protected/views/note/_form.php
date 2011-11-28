@@ -11,13 +11,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'chart_id'); ?>
-		<?php echo $form->textField($model,'chart_id'); ?>
+		<?php  echo $form->dropDownList($model,'chart_id', CHtml::listData(Chart::model()->findAll(), 'id', 'id'));?>
 		<?php echo $form->error($model,'chart_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'staff_id'); ?>
-		<?php echo $form->textField($model,'staff_id'); ?>
+		<?php echo $form->dropDownList($model,'staff_id', CHtml::listData(Staff::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'staff_id'); ?>
 	</div>
 

@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'patient_id'); ?>
-		<?php echo $form->textField($model,'patient_id'); ?>
+		<?php  echo $form->dropDownList($model,'patient_id', CHtml::listData(Patient::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'patient_id'); ?>
 	</div>
 
