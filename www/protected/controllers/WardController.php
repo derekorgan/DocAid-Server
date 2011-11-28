@@ -1,6 +1,6 @@
 <?php
 
-class HospitalController extends Controller
+class WardController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,7 +27,7 @@ class HospitalController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','list'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -61,14 +61,14 @@ class HospitalController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Hospital;
+		$model=new Ward;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Hospital']))
+		if(isset($_POST['Ward']))
 		{
-			$model->attributes=$_POST['Hospital'];
+			$model->attributes=$_POST['Ward'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class HospitalController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Hospital']))
+		if(isset($_POST['Ward']))
 		{
-			$model->attributes=$_POST['Hospital'];
+			$model->attributes=$_POST['Ward'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -127,7 +127,7 @@ class HospitalController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Hospital');
+		$dataProvider=new CActiveDataProvider('Ward');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class HospitalController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Hospital('search');
+		$model=new Ward('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Hospital']))
-			$model->attributes=$_GET['Hospital'];
+		if(isset($_GET['Ward']))
+			$model->attributes=$_GET['Ward'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class HospitalController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Hospital::model()->findByPk($id);
+		$model=Ward::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,27 +167,10 @@ class HospitalController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='hospital-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='ward-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-
-	/**
-	 * Lists all hospitals in a json format
-	 */
-	 public function actionList(){
-	    
-		$models = Hospital::model()->findAll();
-	    $rows = array();
-        foreach($models as $model)
-            $rows[] = $model->attributes;
-        // Send the response
-        echo CJSON::encode($rows);
- 		
-
-	 }
-
-
 }
