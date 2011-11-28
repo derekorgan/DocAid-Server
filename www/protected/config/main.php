@@ -6,11 +6,16 @@ if ($_SERVER['HTTP_HOST'] == 'docaid.derekorgan.com'){
 	$envdb = '_docaid';
 	$envuser = 'root';
 	$envpass = 'wh1stl3r';
-} else {
+} elseif ($_SERVER['HTTP_HOST'] == 'docaid.mac') {
 	$envhost = '127.0.0.1';
 	$envdb = 'docaid';
 	$envuser = 'root';
 	$envpass = 'root';
+} else {
+	$envhost = '127.0.0.1';
+	$envdb = 'docaid';
+	$envuser = 'root';
+	$envpass = '';
 } 
 
 
