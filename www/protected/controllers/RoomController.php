@@ -216,7 +216,6 @@ class RoomController extends Controller
         
         }
 
-        $patient = $this->get_patient(1);
         // Send the response
         
         $json = '{"id":'.$room->id.', ';
