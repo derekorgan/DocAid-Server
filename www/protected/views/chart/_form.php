@@ -24,7 +24,7 @@
                         'attribute'=>'admitted', //attribute name
                                 'mode'=>'datetime', //use "time","date" or "datetime" (default)
                              
-                        'options'=>array( 'dateFormat'=>'yy-mm-dd', 'timeFormat'=>'hh-mm-ss', ), // jquery plugin options
+                        'options'=>array( 'dateFormat'=>'yy-mm-dd', 'timeFormat'=>'hh-mm-ss','showAnim'=>'clip'), // jquery plugin options
                         'language' => ''
                 ));
             ?>

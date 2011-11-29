@@ -47,7 +47,7 @@ class Patient extends CActiveRecord
 
 			array('name', 'length', 'max'=>225),
 			array('sex', 'length', 'max'=>6),
-			array('dob','required'),
+			array('dob,bed_id','required'),
 			array('dob', 'safe'),
 			array('name', 'required'),
 			// The following rule is used by search().

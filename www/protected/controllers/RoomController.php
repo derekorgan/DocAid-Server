@@ -201,8 +201,21 @@ class RoomController extends Controller
 	    $room=Room::model()->findByPk($id);
 		$models = $room->beds;
 	    $rows = array();
-        foreach($models as $model)
-            $rows[] = $model->attributes;
+	    $i =0;
+        foreach($models as $model) {
+
+            $rows[$i] = $model->attributes;
+
+
+            //echo $model->id;
+           if ($patient = $this->get_patient($model->id)) {
+           		$rows[$i]['patient'] = $patient->attributes;
+           	}
+
+           	$i++;	
+        
+        }
+
         // Send the response
         
         $json = '{"id":'.$room->id.', ';
@@ -212,5 +225,16 @@ class RoomController extends Controller
         echo $json;
  		
 
+	 }
+
+	 protected function get_patient($bed)
+	 {
+	 	 if ($patient = Patient::model()->find('bed_id=:bedID', array(':bedID'=>$bed)) ) {
+			
+			return $patient;
+		}
+		else {
+			return false;
+		}
 	 }
 }

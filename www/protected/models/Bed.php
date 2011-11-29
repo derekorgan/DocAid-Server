@@ -41,7 +41,7 @@ class Bed extends CActiveRecord
 		// will receive user inputs.
 		return array(
 
-			array('room_id', 'required'),
+			array('room_id,name,mac', 'required'),
 			array('room_id', 'numerical', 'integerOnly'=>true),
 
 			array('name', 'length', 'max'=>255),
