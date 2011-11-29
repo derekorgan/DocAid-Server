@@ -42,7 +42,7 @@ class Note extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('chart_id, staff_id,created,text', 'required'),
+			array('chart_id, staff_id, text', 'required'),
 			array('chart_id, staff_id', 'numerical', 'integerOnly'=>true),
 			array('created, updated, text', 'safe'),
 			// The following rule is used by search().

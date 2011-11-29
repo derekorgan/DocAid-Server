@@ -27,7 +27,7 @@ class NoteController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'post'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -68,6 +68,8 @@ class NoteController extends Controller
 
 		if(isset($_POST['Note']))
 		{
+			//print_r($_POST);
+			//return;
 			$model->attributes=$_POST['Note'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
@@ -172,5 +174,39 @@ class NoteController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+
+	/**
+	 * Creates a new model.
+	 * If creation is successful, it will echo out true else false
+	 */
+	public function actionPost()
+	{
+		$model = new Note;
+		
+		
+		if( isset($_GET['staff_id']) && is_numeric($_GET['staff_id']) && isset($_GET['chart_id']) && is_numeric($_GET['chart_id']) )
+		{
+			$model->staff_id =(int)urldecode($_GET['staff_id']);
+			$model->text = urldecode($_GET['text']);
+			$model->chart_id = (int)urldecode($_GET['chart_id']);
+
+			//$note = array('staff_id' => $_GET['staff_id'], 'text' => $_GET['text'], 'chart_id' => $_GET['chart_id']);
+			//$model->attributes=$note;
+			
+			//print_r($note);
+			if($model->save())
+				echo "true";
+			else
+				echo "false";
+		}
+		else {
+			echo "false";
+		}
+		
+
+
+
 	}
 }
