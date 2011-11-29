@@ -27,7 +27,7 @@ class PatientController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'show', 'list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -173,4 +173,79 @@ class PatientController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+		/**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionList(){
+	    
+		$models = Patient::model()->findAll();
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+
+		$json = '{"patient":';
+
+		$json .= CJSON::encode($rows);
+ 		$json .= "}";
+ 		echo $json;
+
+	 }
+
+	 /**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionShow($id){
+	    
+	    $patient=Patient::model()->findByPk($id);
+		$models = $patient->charts;
+	    $rows = array();
+	    $i =0;
+        foreach($models as $model) {
+
+            $rows[$i] = $model->attributes;
+            //echo $model->id;
+           if ($note = $this->get_note($model->id)) {
+           		$j = 0;
+           		foreach($note as $n) {
+
+           			$rows[$i]['note'][$j] = $n->attributes;
+
+           			$staff = Staff::model()->findByPk($n->staff_id);
+           			$rows[$i]['note'][$j]['staff_name'] = $staff->name;
+           			$rows[$i]['note'][$j]['staff_type'] = $staff->type;
+           			$j++;
+
+           		}
+           }
+
+           	$i++;	
+        
+        }
+
+        // Send the response
+        
+        $json = '{"id":'.$patient->id.', ';
+        $json .= '"name":"'.$patient->name.'", ';
+        $json .= '"dob":"'.$patient->dob.'", ';
+        $json .= '"sex":"'.$patient->sex.'", ';
+        $json .= '"chart":'.CJSON::encode($rows)."}";
+
+        echo $json;
+ 		
+
+	 }
+
+	 protected function get_note($chart)
+	 {
+	 	 if ($note = Note::model()->findAll('chart_id=:chartID', array(':chartID'=>$chart)) ) {
+			
+			return $note;
+		}
+		else {
+			return false;
+		}
+	 }
+
 }

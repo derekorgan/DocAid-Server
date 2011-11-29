@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'hospital_id'); ?>
-		<? 
+		<?php 
 		echo $form->dropDownList($model,'hospital_id', CHtml::listData(Hospital::model()->findAll(), 'id', 'name'));?>
 		<?php echo $form->error($model,'hospital_id'); ?>
 	</div>
