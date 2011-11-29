@@ -88,11 +88,11 @@ return array(
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
-				
+				/*
 				array(
 	                'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
 	                'ipFilters'=>array('127.0.0.1','193.1.140.23', '192.168.0.4'),
-            	),
+            	),*/
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
