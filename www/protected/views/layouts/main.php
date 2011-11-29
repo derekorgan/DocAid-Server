@@ -53,7 +53,7 @@
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by DocAid International<br/>
 		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		
 	</div><!-- footer -->
 
 </div><!-- page -->

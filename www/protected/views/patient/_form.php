@@ -9,7 +9,11 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-
+<div class="row">
+		<?php echo $form->labelEx($model,'bed_id'); 
+		echo $form->dropDownList($model,'bed_id', CHtml::listData(Bed::model()->findAll(), 'id', 'name'));?>
+		<?php echo $form->error($model,'bed_id'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
@@ -27,7 +31,8 @@
 				   'model'=>$model, //Model object
 				'attribute'=>'dob', //attribute name
 						'mode'=>'date', //use "time","date" or "datetime" (default)
-				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true'), // jquery plugin options
+
+				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true','minDate'=>'1901-01-01','maxDate'=>'2011-11-29',						'showAnim'=>'clip'), // jquery plugin options
 				'language' => ''
         ));
     ?>
@@ -39,11 +44,7 @@
 		<?php echo $form->error($model,'sex'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'bed_id'); 
-		echo $form->dropDownList($model,'bed_id', CHtml::listData(Bed::model()->findAll(), 'id', 'name'));?>
-		<?php echo $form->error($model,'bed_id'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
