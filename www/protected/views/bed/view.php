@@ -20,7 +20,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'room_id',
-		'patient_id',
 		'name',
 		'mac',
 	),

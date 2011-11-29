@@ -9,6 +9,8 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>225)); ?>
@@ -17,14 +19,30 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dob'); ?>
-		<?php echo $form->textField($model,'dob'); ?>
 		<?php echo $form->error($model,'dob'); ?>
+	</div>
+	<?php 
+            Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
+			  $this->widget('CJuiDateTimePicker',array(
+				   'model'=>$model, //Model object
+				'attribute'=>'dob', //attribute name
+						'mode'=>'date', //use "time","date" or "datetime" (default)
+				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true'), // jquery plugin options
+				'language' => ''
+        ));
+    ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'sex'); 
+      		  $sex['Male']='Male';
+				$sex['Female']='Female';			
+			 	echo $form->dropDownList($model,'sex', $sex , ''); ?>
+		<?php echo $form->error($model,'sex'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'sex'); ?>
-		<?php echo $form->textField($model,'sex',array('size'=>6,'maxlength'=>6)); ?>
-		<?php echo $form->error($model,'sex'); ?>
+		<?php echo $form->labelEx($model,'bed_id'); ?>
+		<?php echo $form->textField($model,'bed_id'); ?>
+		<?php echo $form->error($model,'bed_id'); ?>
 	</div>
 
 	<div class="row buttons">

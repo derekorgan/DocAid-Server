@@ -25,6 +25,11 @@
 		<?php echo $form->textField($model,'sex',array('size'=>6,'maxlength'=>6)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'bed_id'); ?>
+		<?php echo $form->textField($model,'bed_id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

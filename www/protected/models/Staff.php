@@ -42,6 +42,7 @@ class Staff extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('hospital_id', 'required'),
+			array('name','required'),
 			array('hospital_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('type', 'length', 'max'=>6),

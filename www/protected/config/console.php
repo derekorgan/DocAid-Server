@@ -1,5 +1,15 @@
 <?php
 
+
+// database settings for different enviroments
+
+	$envhost = '127.0.0.1';
+	$envdb = 'docaid';
+	$envuser = 'root';
+	$envpass = 'root';
+
+
+
 // This is the configuration for yiic console application.
 // Any writable CConsoleApplication properties can be configured here.
 return array(
@@ -7,18 +17,17 @@ return array(
 	'name'=>'DocAid',
 	// application components
 	'components'=>array(
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		// uncomment the following to use a MySQL database
-		/*
+		),*/
+
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => "mysql:host=$envhost;dbname=$envdb",
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => $envuser,
+			'password' => $envpass,
 			'charset' => 'utf8',
 		),
-		*/
+
 	),
 );

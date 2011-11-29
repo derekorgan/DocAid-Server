@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'patient':
  * @property integer $id
+ * @property integer $bed_id
  * @property string $name
  * @property string $dob
  * @property string $sex
@@ -41,12 +42,17 @@ class Patient extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+
+			array('bed_id', 'numerical', 'integerOnly'=>true),
+
 			array('name', 'length', 'max'=>225),
 			array('sex', 'length', 'max'=>6),
+			array('dob','required'),
 			array('dob', 'safe'),
+			array('name', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, dob, sex', 'safe', 'on'=>'search'),
+			array('id, bed_id, name, dob, sex', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +64,7 @@ class Patient extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'beds' => array(self::HAS_MANY, 'Bed', 'patient_id'),
+			'bed' => array(self::BELONGS_TO, 'Bed', 'bed_id'),
 			'charts' => array(self::HAS_MANY, 'Chart', 'patient_id'),
 			'staffs' => array(self::MANY_MANY, 'Staff', 'patient_staff(patient_id, staff_id)'),
 		);
@@ -71,6 +77,7 @@ class Patient extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'bed_id' => 'Bed',
 			'name' => 'Name',
 			'dob' => 'Dob',
 			'sex' => 'Sex',
@@ -89,6 +96,7 @@ class Patient extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('bed_id',$this->bed_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('dob',$this->dob,true);
 		$criteria->compare('sex',$this->sex,true);

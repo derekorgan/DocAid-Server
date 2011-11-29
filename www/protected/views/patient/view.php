@@ -22,5 +22,6 @@ $this->menu=array(
 		'name',
 		'dob',
 		'sex',
+		'bed_id',
 	),
 )); ?>
