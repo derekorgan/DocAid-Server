@@ -24,7 +24,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
-		<?php echo $form->textField($model,'type',array('size'=>6,'maxlength'=>6)); ?>
+		<?php
+			$table_name = "staff";
+			$column_name = 'type';
+			$row['Doctor']='Doctor';
+			$row['Nurse']='Nurse';
+			
+		 echo $form->dropDownList($model,'type', $row , ''); ?>
 		<?php echo $form->error($model,'type'); ?>
 	</div>
 

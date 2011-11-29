@@ -14,10 +14,20 @@
 		<?php  echo $form->dropDownList($model,'patient_id', CHtml::listData(Patient::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'patient_id'); ?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'admitted'); ?>
-		<?php echo $form->textField($model,'admitted'); ?>
+		<?php 
+                    Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
+                      $this->widget('CJuiDateTimePicker',array(
+                           'model'=>$model, //Model object
+                        'attribute'=>'admitted', //attribute name
+                                'mode'=>'datetime', //use "time","date" or "datetime" (default)
+                             
+                        'options'=>array( 'dateFormat'=>'yy-mm-dd', 'timeFormat'=>'hh-mm-ss', ), // jquery plugin options
+                        'language' => ''
+                ));
+            ?>
 		<?php echo $form->error($model,'admitted'); ?>
 	</div>
 

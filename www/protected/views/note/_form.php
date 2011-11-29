@@ -23,13 +23,33 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'created'); ?>
-		<?php echo $form->textField($model,'created'); ?>
+		<?php 
+                    Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
+                      $this->widget('CJuiDateTimePicker',array(
+                           'model'=>$model, //Model object
+                        'attribute'=>'created', //attribute name
+                                'mode'=>'datetime', //use "time","date" or "datetime" (default)
+                             
+                        'options'=>array( 'dateFormat'=>'yy-mm-dd', 'timeFormat'=>'hh-mm-ss', ), // jquery plugin options
+                        'language' => ''
+                ));
+            ?>
 		<?php echo $form->error($model,'created'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'updated'); ?>
-		<?php echo $form->textField($model,'updated'); ?>
+		<?php 
+                    Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
+                      $this->widget('CJuiDateTimePicker',array(
+                           'model'=>$model, //Model object
+                        'attribute'=>'updated', //attribute name
+                                'mode'=>'datetime', //use "time","date" or "datetime" (default)
+                             
+                        'options'=>array( 'dateFormat'=>'yy-mm-dd', 'timeFormat'=>'hh-mm-ss', ), // jquery plugin options
+                        'language' => ''
+                ));
+            ?>
 		<?php echo $form->error($model,'updated'); ?>
 	</div>
 

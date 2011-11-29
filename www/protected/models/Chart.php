@@ -39,7 +39,7 @@ class Chart extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('patient_id', 'required'),
+			array('patient_id,admitted', 'required'),
 			array('patient_id', 'numerical', 'integerOnly'=>true),
 			array('admitted', 'safe'),
 			// The following rule is used by search().

@@ -43,9 +43,16 @@ body
 
 #logo
 {
-	padding: 10px 20px;
+	padding: 20px 20px 20px 80px;
 	font-size: 200%;
-}
+	
+	background:url(../images/logo.JPG);
+	background-size:40px;
+	background-repeat:no-repeat;
+	background-position: 20px 10px;
+	
+	
+	}
 
 #mainmenu
 {
@@ -79,7 +86,10 @@ body
 	background-color:#EFF4FA;
 	text-decoration:none;
 }
+#docaid logo{ 
 
+
+}
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
@@ -226,9 +236,4 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
-}
-.logo{
-	height:50%;
-	width:50%;
-	background-image:url(site/logo.JPG);
 }

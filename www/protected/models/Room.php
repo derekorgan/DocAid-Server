@@ -40,13 +40,15 @@ class Room extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ward_id', 'required'),
+			array('ward_id,name,mac', 'required'),
 			array('ward_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('mac', 'length', 'max'=>90),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, ward_id, name, mac', 'safe', 'on'=>'search'),
+						//Mac Address Validator
+			 array('mac', 'ext.validators.FMACValidator'),
 		);
 	}
 
