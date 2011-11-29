@@ -3,11 +3,10 @@
 
 // database settings for different enviroments
 
-	$envhost = '127.0.0.1';
-	$envdb = 'docaid';
-	$envuser = 'root';
-	$envpass = 'root';
-
+        $envhost = 'localhost';
+        $envdb = '_docaid';
+        $envuser = 'root';
+        $envpass = 'wh1stl3r';
 
 
 // This is the configuration for yiic console application.
