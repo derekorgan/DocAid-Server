@@ -27,7 +27,7 @@
 				   'model'=>$model, //Model object
 				'attribute'=>'dob', //attribute name
 						'mode'=>'date', //use "time","date" or "datetime" (default)
-				'options'=>array( 'dateFormat'=>'yy-mm-dd'), // jquery plugin options
+				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true'), // jquery plugin options
 				'language' => ''
         ));
     ?>
@@ -40,8 +40,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'bed_id'); ?>
-		<?php echo $form->textField($model,'bed_id'); ?>
+		<?php echo $form->labelEx($model,'bed_id'); 
+		echo $form->dropDownList($model,'bed_id', CHtml::listData(Bed::model()->findAll(), 'id', 'name'));?>
 		<?php echo $form->error($model,'bed_id'); ?>
 	</div>
 

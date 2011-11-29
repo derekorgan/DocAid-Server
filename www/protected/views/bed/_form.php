@@ -10,8 +10,8 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'room_id'); ?>
-		<?php echo $form->textField($model,'room_id'); ?>
+		<?php echo $form->labelEx($model,'room_id'); 
+			echo $form->dropDownList($model,'room_id', CHtml::listData(Room::model()->findAll(), 'id', 'name'));?>
 		<?php echo $form->error($model,'room_id'); ?>
 	</div>
 
