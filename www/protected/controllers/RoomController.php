@@ -27,7 +27,7 @@ class RoomController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','list','show'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -173,4 +173,44 @@ class RoomController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionList(){
+	    
+		$models = Room::model()->findAll();
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+
+		$json = '{"room":';
+
+		$json .= CJSON::encode($rows);
+ 		$json .= "}";
+ 		echo $json;
+
+	 }
+
+	 /**
+	 * Lists all hospitals in a json format
+	 */
+	 public function actionShow($id){
+	    
+	    $room=Room::model()->findByPk($id);
+		$models = $room->beds;
+	    $rows = array();
+        foreach($models as $model)
+            $rows[] = $model->attributes;
+        // Send the response
+        
+        $json = '{"id":'.$room->id.', ';
+        $json .= '"name":"'.$room->name.'", ';
+        $json .= '"bed":'.CJSON::encode($rows)."}";
+
+        echo $json;
+ 		
+
+	 }
 }

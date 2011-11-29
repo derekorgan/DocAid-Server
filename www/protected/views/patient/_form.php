@@ -39,6 +39,12 @@
 		<?php echo $form->error($model,'sex'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'bed_id'); ?>
+		<?php echo $form->textField($model,'bed_id'); ?>
+		<?php echo $form->error($model,'bed_id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

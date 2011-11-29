@@ -16,5 +16,9 @@
 	<?php echo CHtml::encode($data->sex); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('bed_id')); ?>:</b>
+	<?php echo CHtml::encode($data->bed_id); ?>
+	<br />
+
 
 </div>
