@@ -27,7 +27,7 @@
 				   'model'=>$model, //Model object
 				'attribute'=>'dob', //attribute name
 						'mode'=>'date', //use "time","date" or "datetime" (default)
-				'options'=>array( 'dateFormat'=>'yy-mm-dd'), // jquery plugin options
+				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true'), // jquery plugin options
 				'language' => ''
         ));
     ?>
