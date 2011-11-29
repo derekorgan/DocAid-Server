@@ -31,11 +31,11 @@
 				
 			}
 			
-			function cmpUserField($a,$b){
+			/*function cmpUserField($a,$b){
 				return $a['patientId']-$b['patientId'];
 			}
 	 
-			uasort($array, 'cmpUserField'); 
+			uasort($array, 'cmpUserField'); */
 			
 			$i=0;
 			foreach($array as $row){
