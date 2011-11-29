@@ -40,8 +40,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'bed_id'); ?>
-		<?php echo $form->textField($model,'bed_id'); ?>
+		<?php echo $form->labelEx($model,'bed_id'); 
+		echo $form->dropDownList($model,'bed_id', CHtml::listData(Bed::model()->findAll(), 'id', 'name'));?>
 		<?php echo $form->error($model,'bed_id'); ?>
 	</div>
 
