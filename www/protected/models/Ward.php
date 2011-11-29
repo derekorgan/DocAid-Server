@@ -40,7 +40,7 @@ class Ward extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('hospital_id', 'required'),
+			array('hospital_id,name,mac', 'required'),
 			array('hospital_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('mac', 'length', 'max'=>90),

@@ -41,7 +41,7 @@ class Bed extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('room_id, patient_id', 'required'),
+			array('room_id, patient_id,name,mac', 'required'),
 			array('room_id, patient_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('mac', 'length', 'max'=>90),

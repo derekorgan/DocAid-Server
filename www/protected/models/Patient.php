@@ -41,9 +41,12 @@ class Patient extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('name','required'),
 			array('name', 'length', 'max'=>225),
 			array('sex', 'length', 'max'=>6),
+			array('dob','required'),
 			array('dob', 'safe'),
+			array('name', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, dob, sex', 'safe', 'on'=>'search'),
