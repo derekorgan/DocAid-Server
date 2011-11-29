@@ -48,6 +48,8 @@ class Bed extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, room_id, patient_id, name, mac', 'safe', 'on'=>'search'),
+									//Mac Address Validator
+			 array('mac', 'ext.validators.FMACValidator'),
 		);
 	}
 
