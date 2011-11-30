@@ -12,38 +12,7 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'chart_id'); ?>
 		<?php 		
-		
-			$chartStuff=Chart::model()->findAll();
-			$patientStuff=Patient::model()->findAll();
-			$array=array();
-			$i=1;
-			foreach($patientStuff as $value){
-				$arrayPatient[$i]=$value['name'];
-				$i++;
-			}
-			$i=0;
-			foreach($chartStuff as $value){
-		
-				$array[$value['id']]['admitted']=$value['admitted'];
-				$array[$value['id']]['patientId']=$value['patient_id'];
-				$array[$value['id']]['patientName']=$arrayPatient[$value['patient_id']];	
-				
-				
-			}
-			
-			/*function cmpUserField($a,$b){
-				return $a['patientId']-$b['patientId'];
-			}
-	 
-			uasort($array, 'cmpUserField'); */
-			
-			$i=0;
-			foreach($array as $row){
-				$display[$i++]= $row['patientName'] . " - " . $row['admitted'];
-				
-			}
-			 echo $form->dropDownList($model,'chart_id',$display,'');
-					
+		 	echo $form->dropDownList($model,'chart_id', CHtml::listData(Chart::model()->findAll(), 'id', 'id')); 			
 		?>
 		<?php echo $form->error($model,'chart_id'); ?>
 	</div>
