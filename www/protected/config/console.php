@@ -6,7 +6,7 @@
 	$envhost = '127.0.0.1';
 	$envdb = 'docaid';
 	$envuser = 'root';
-	$envpass = '';
+	$envpass = 'root';
 
 
 // This is the configuration for yiic console application.
