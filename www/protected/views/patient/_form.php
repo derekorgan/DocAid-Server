@@ -32,7 +32,7 @@
 				'attribute'=>'dob', //attribute name
 						'mode'=>'date', //use "time","date" or "datetime" (default)
 
-				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true','minDate'=>'1901-01-01','maxDate'=>'2011-11-29',						'showAnim'=>'clip'), // jquery plugin options
+				'options'=>array( 'dateFormat'=>'yy-mm-dd','changeYear'=>'true','changeMonth'=>'true','minDate'=>'1901-01-01','maxDate'=>'1990-11-29',						'showAnim'=>'clip'), // jquery plugin options
 				'language' => ''
         ));
     ?>
